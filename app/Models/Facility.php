@@ -28,6 +28,15 @@ class Facility extends Model
     ];
 
     /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
+    protected $appends = [
+        'count_views',
+    ];
+
+    /**
      * Get the facilities for user
      *
      * @return BelongsTo
@@ -55,5 +64,15 @@ class Facility extends Model
     public function view(): HasMany
     {
         return $this->hasMany(View::class);
+    }
+
+    /**
+     * Getter for get count views
+     *
+     * @return int
+     */
+    public function getCountViewsAttribute(): int
+    {
+        return $this->view->count();
     }
 }

@@ -83,10 +83,10 @@ class User extends Authenticatable
     /**
      * Get the view for user
      *
-     * @return int
+     * @return HasMany
      */
-    public function view(): int
+    public function view(): HasMany
     {
-        return $this->hasMany(View::class)->count();
+        return $this->hasMany(View::class);
     }
 }

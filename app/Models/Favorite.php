@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class View extends Model
+class Favorite extends Model
 {
     use HasFactory;
 
@@ -18,26 +18,25 @@ class View extends Model
     protected $fillable = [
         'facility_id',
         'user_id',
-        'time',
     ];
 
     /**
-     * Get the facility view
-     *
-     * @return BelongsTo
-     */
-    public function facility(): BelongsTo
-    {
-        return $this->belongsTo(Facility::class);
-    }
-
-    /**
-     * Get user view
+     * Get favorite facility for own user
      *
      * @return BelongsTo
      */
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    /**
+     * Get favorite facility for user
+     *
+     * @return BelongsTo
+     */
+    public function facility(): BelongsTo
+    {
+        return $this->belongsTo(Facility::class);
     }
 }

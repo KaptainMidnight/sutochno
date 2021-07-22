@@ -14,3 +14,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/facilities', \App\Http\Livewire\FacilityController::class);
+Route::get('/facility/{facility}', \App\Http\Livewire\FacilityShowController::class)->name('facility.show');
